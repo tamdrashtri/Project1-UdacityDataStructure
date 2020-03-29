@@ -18,5 +18,23 @@ also time spent on the phone.
 Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
+
 """
 
+# turn into integers
+
+time = {}
+
+for number in calls:
+  if number[0] in time:
+    time[number[0]] += int(number[3])
+  else:
+    time[number[0]] = int(number[3])
+  if number[1] in time:
+    time[number[1]] += int(number[3])
+  else:
+    time[number[1]] = int(number[3])
+
+longest_time = max(time)
+
+print(f'{longest_time} spent the longest time, {time[longest_time]} seconds, on the phone during September 2016')
