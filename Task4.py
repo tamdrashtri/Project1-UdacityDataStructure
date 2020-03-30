@@ -25,16 +25,16 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-outgoingCalls = set()
-incomingCalls = set()
-outgoingTexts = set()
-incomingTexts = set()
+outCalls = set()
+inCalls = set()
+outTexts = set()
+inTexts = set()
 
 for call in calls:
-  outgoingCalls.add(call[0])
-  incomingCalls.add(call[1])
+  outCalls.add(call[0])
+  inCalls.add(call[1])
 for text in texts:
-  outgoingTexts.add(text[0])
-  incomingTexts.add(text[1])
+  outTexts.add(text[0])
+  inTexts.add(text[1])
 
-print('These numbers could be telemarketers: ', *sorted(outgoingCalls - (incomingCalls|outgoingTexts|incomingTexts)))
+print('These numbers could be telemarketers: ', *sorted(outCalls - (inCalls|outTexts|inTexts)))

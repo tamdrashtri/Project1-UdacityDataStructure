@@ -1,6 +1,5 @@
 Task 0
 Complexity: O(1)
-Inputs do not affect run time
 
 Task 1
 2 for loops - Complexity: O(2n) -> O(n)
