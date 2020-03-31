@@ -35,6 +35,7 @@ for number in calls:
   else:
     time[number[1]] = int(number[3])
 
-longest_time = max(time)
+# since it's dictionary we use key = time.get
+longest_time = max(time, key = time.get)
 
 print(f'{longest_time} spent the longest time, {time[longest_time]} seconds, on the phone during September 2016')
