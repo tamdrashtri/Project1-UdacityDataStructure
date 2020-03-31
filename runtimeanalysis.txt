@@ -1,14 +1,19 @@
 Task 0
-Complexity: O(1)
+Worst case time-complexity is Big O(1)
+The time-complexity for this program is Big O(1) because we are not iterating the elements from input lists (calls or texts). We are accessing the first and last value from the lists (calls and texts) by an index.
 
 Task 1
-2 for loops - Complexity: O(2n) -> O(n)
+Worst case time-complexity is Big O(2n) -> O(n)
+This is because we have 2 for loops.
 
 Task 2
-complexity: O(n)
+Worst case time-complexity is Big O(n)
+This is because we have 1 for loop.
 
 Task 3
-for loop + sort - O(n+nlogn)
+Worst case time-complexity is O(n+nlogn)
+This is because we have for loops + sort.
 
 Task 4
-for loop + sort - O(n+nlogn)
+Worst case time-complexity is O(n+nlogn)
+This is because we have for loops + sort.
