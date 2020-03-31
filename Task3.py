@@ -46,29 +46,29 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
+
 bangaloreCodes = list(filter(lambda x: x[0][:5] == '(080)', calls))
 codes = {}
 
 for bangaloreCode in bangaloreCodes:
-  # if this matches, then add them to the set
-  # mobile num
-  if bangaloreCode[1][:4] in codes:
-    codes[bangaloreCode[1][:4]] += 1
-  else:
-    codes[bangaloreCode[1][:4]] = 1 
-  #fixed lines
-  if bangaloreCode[1][0] == '(':
-    if re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1] in codes:
-      codes[re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1]] += 1
+    #Fixed Lines
+    if bangaloreCode[1][0] == '(':
+        if re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1] in codes:
+            codes[re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1]] += 1
+        else:
+            codes[re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1]] = 1 
+    #Telemarketers 
+    elif bangaloreCode[1][:3] == '140':
+        if '140' in codes:
+            codes['140'] += 1
+        else:
+            codes['140'] = 1
+    #Mobile Numbers
     else:
-      codes[re.match(r"\(([0-9]+)\)", bangaloreCode[1]).group(0)[1:-1]] = 1 
-  #Telemarketers 
-  else:
-    if bangaloreCode[1][:3] == '140':
-      if '140' in codes:
-        codes['140'] += 1
-      else:
-        codes['140'] = 1
+        if bangaloreCode[1][:4] in codes:
+            codes[bangaloreCode[1][:4]] += 1
+        else:
+            codes[bangaloreCode[1][:4]] = 1
     
     
 
@@ -76,5 +76,4 @@ print("The numbers called by people in Bangalore have codes:")
 for code in sorted([*codes]):
     print(code)
 lines = codes['080']
-allLines = reduce(lambda x, value: x + value, codes.values(), 0)
-print(f"{round(lines*100/allLines,2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+print(f"{round(lines*100/len(bangaloreCodes),2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
