@@ -37,4 +37,6 @@ for text in texts:
   outTexts.add(text[0])
   inTexts.add(text[1])
 
-print('These numbers could be telemarketers: ', *sorted(outCalls - (inCalls|outTexts|inTexts)))
+print('These numbers could be telemarketers: ') 
+for letter in (outCalls - (inCalls|outTexts|inTexts)):
+  print(letter)
